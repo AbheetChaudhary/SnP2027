@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/goliath/dev/fhe/sgx_integration/SGX-CMake/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

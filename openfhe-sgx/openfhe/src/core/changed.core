@@ -1,0 +1,94 @@
+CMakeLists.txt
+
+include/lattice/dgsampling.h
+- define M_PI
+
+include/lattice/field2n.h
+- << for std::complex<double> is missing in `complex` SGX header
+
+include/lattice/hal/default/dcrtpoly-impl.h
+- has <<
+
+include/lattice/hal/default/dcrtpoly.h
+- has OPENFHE_THROW macro
+
+include/lattice/hal/default/ildcrtparams.h
+- has <<
+
+include/lattice/hal/elemparams.h
+- has <<
+
+include/lattice/trapdoor-impl.h
+- timing
+
+include/lattice/trapdoor.h
+- timing
+
+include/math/discretegaussiangenerator.h
+- define M_PI
+
+include/math/hal/bigintdyn/mubintvecdyn.h
+- has <<
+
+include/math/hal/bigintntl/ubintntl.h
+- has std::cerr
+
+include/math/hal/intnat/mubintvecnat.h
+- has std::cout
+
+include/utils/caller_info.h
+- has std::cout
+
+include/utils/debug.h
+
+include/utils/exception.h
+
+include/utils/serial.h
+- Contains file IO in SerializeToFile, DeserializeFromFile, these functions are
+  not being used much other than in examples and unittests.
+
+lib/lattice/lattice.cpp
+- defined __fixunsdfti as weak symbol
+
+lib/lattice/trapdoor-dcrtpoly.cpp
+- timing
+
+lib/lattice/trapdoor-poly.cpp
+- timing
+
+lib/math/chebyshev.cpp
+- define M_PI
+
+lib/math/dftransform.cpp
+- define M_PI
+
+lib/math/discretegaussiangeneratorgeneric.cpp
+- define M_PI
+
+lib/math/distributiongenerator.cpp
+- Had dynamic loading of a shared library for pseudorandom number generation.
+  Replace that with using the default PRNG that comes with openfhe.
+- Also need a definition for __cxa_thread_atexit due to a thread_local use.
+
+lib/math/hal/bigintdyn/mubintvecdyn.cpp
+- OPENFHE_THROW
+
+lib/math/hal/bigintdyn/ubintdyn.cpp
+- has std::cout
+
+lib/math/hal/bigintntl/mubintvecntl.cpp
+- has std::cerr
+
+lib/math/hermite.cpp
+- define M_PI
+
+lib/utils/blockAllocator/xallocator.cpp
+- has std::cout
+
+lib/utils/debug.cpp
+- Has a currentDateTime function, returning constant for now.
+
+lib/utils/prng/blake2engine.cpp
+- has std::cerr,
+- uses time and thread id for seed for randomness, replaced it with sgx sdk
+  functions

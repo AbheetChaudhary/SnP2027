@@ -1,0 +1,43 @@
+CMakeLists.txt
+
+include/cryptocontext-ser.h
+- has SerializeToFile, DeserializeFromFile
+
+include/cryptocontext.h
+- has std::cerr
+
+include/encoding/ckkspackedencoding.h
+- has <<
+
+include/encoding/coefpackedencoding.h
+- has <<
+
+include/encoding/encodingparams.h
+- has <<
+
+include/encoding/packedencoding.h
+- has <<
+
+include/key/privatekey.h
+- has << on std::stringstream
+
+include/schemebase/rlwe-cryptoparameters.h
+- has <<
+
+lib/ciphertext-impl.cpp
+- fix unused variable
+
+lib/encoding/ckkspackedencoding.cpp
+- fix unused variables
+
+lib/encoding/packedencoding.cpp
+- OPENFHE_THROW, OPENFHE_DEBUG
+
+lib/scheme/ckksrns/ckksrns-fhe.cpp
+- has timing, std::cerr
+
+lib/scheme/ckksrns/ckksrns-utils.cpp
+- define M_PI
+
+lib/scheme/gen-cryptocontext-params-impl.cpp
+- has <<

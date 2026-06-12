@@ -1,0 +1,2 @@
+/home/goliath/dev/fhe/sgx_integration/SGX-CMake/build/CMakeFiles/edit_cache.dir
+/home/goliath/dev/fhe/sgx_integration/SGX-CMake/build/CMakeFiles/rebuild_cache.dir
