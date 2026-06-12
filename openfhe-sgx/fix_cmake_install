@@ -1,0 +1,8 @@
+# 1. Create the expected directory structure if it doesn't exist
+mkdir -p build/src/core/
+
+# 2. Symlink the file to where CMake expects it
+ln -s $(pwd)/build/openfhe/src/core/config_core.h $(pwd)/build/src/core/config_core.h
+
+# 3. Try installing again
+cd build && make install

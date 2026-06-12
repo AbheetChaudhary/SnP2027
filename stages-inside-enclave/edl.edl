@@ -1,0 +1,60 @@
+
+
+
+
+
+enclave {
+    trusted { /* ECALLs defined here. */
+		public bool ecall_example_in([in] int arr[4]);
+		public bool ecall_example_out([out] int arr[4]);
+		public bool ecall_example_in_out([in, out] int arr[4]);
+
+		bool ecall_example_string([in, size=length] char *str,
+                size_t length);
+    };
+
+    untrusted { /* OCALLs defined here. */
+        void ocall_print_string([in, string] const char *str);
+    };
+};
+
+
+
+
+// Application side bridge
+sgx_status_t ecall_example_in(sgx_enclave_id_t eid, bool *retval, int *val) {
+    /* -snip- */
+
+    // transition to enclave
+    status = sgx_ecall(enclave_id, ..., &ms);
+    // `ms` is a struct containing `retval` and `val`
+
+    /* -snip- */
+}
+
+
+
+
+
+
+// Enclave side bridge
+static sgx_status_t SGX_CDECL sgx_ecall_example_in(void* pms) {
+    /*
+     * extract `bool *retval` and `int *val` from `pms`.
+     *
+     * Allocate memory for 4 integers on enclave heap.
+     *
+     * Move 4 integers from application memory(`int *val`) to enclave memory.
+     *
+     * Call `ecall_example_in(int arr[4])` function.
+     *
+     * Move the return value to application memory by using `retval` pointer.
+     *
+     * Return SGX_SUCCESS in `sgx_status_t` type.
+     */
+}
+
+
+ret = sgx_create_enclave(ENCLAVE_FILENAME, SGX_DEBUG_FLAG,
+        NULL, NULL, &enclave_id, NULL);
+
