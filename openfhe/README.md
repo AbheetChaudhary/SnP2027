@@ -6,4 +6,4 @@ cmake -DCMAKE_INSTALL_PREFIX=../installed
 ```
 
 - Then `make -j6`
-- The `make install`
+- Then `make install`

@@ -7,6 +7,6 @@ cmake -DCMAKE_INSTALL_PREFIX=../installed
 
 - Then `make -j6` to build.
 
-- The `make install`, it might fail. Follow the steps in `fix_cmake_install` from
+- Then `make install`, it might fail. Follow the steps in `fix_cmake_install` from
   the `openfhe-sgx` directory.
 

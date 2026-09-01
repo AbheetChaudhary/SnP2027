@@ -20,3 +20,6 @@ be installed using:
 ```
 yay -S intel-sgx-sdk-bin intel-sgx-psw-bin
 ```
+
+Individual directories have their own README.md file explaining how build and run
+the code. 
